@@ -2,6 +2,8 @@ const express = require('express');
 const path = require('path');
 const bp = require('body-parser');
 const cors = require('cors');
+const cards = require('./JSON/cards.json');
+const campaigns = require('./JSON/campaigns.json');
 
 const PORT = 3000;
 const app = express();
@@ -11,11 +13,22 @@ app.use(bp.json());
 app.use(bp.urlencoded({ extended: true }));
 
 // Serve static files
-app.use(express.static(path.join(__dirname, 'dist')));
+app.use(express.static(path.join(__dirname, '../dist')));
 
 // Base route
-app.get('/*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'dist/index.html'));
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, '../dist/index.html'));
+});
+
+// Data routes
+// Card.json
+app.get('/cards', (req, res) => {
+  res.json(cards);
+});
+
+// Campaigns.json
+app.get('/campaigns', (req, res) => {
+  res.json(campaigns);
 });
 
 // Start server
