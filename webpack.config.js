@@ -35,6 +35,10 @@ const config = {
         exclude: /node_modules/,
       },
       {
+        use: ['style-loader', 'css-loader', 'sass-loader'],
+        test: /\.scss$/,
+      },
+      {
         test: /\.(pdf|jpg|png|gif|svg|ico)$/,
         use: [
           {
