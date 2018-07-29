@@ -11,10 +11,12 @@
     "arrow-parens": 0,
     "react/prefer-stateless-function": 0,
     "react/no-unused-state": 1,
+    "react/no-array-index-key": 0,
     "space-before-function-paren": 1,
     "arrow-body-style": 0,
     "no-console": 1,
-    "no-unused-vars": 1
+    "no-unused-vars": 1,
+    "object-curly-newline": 0,
   },
   "env": {
     "browser": true,
