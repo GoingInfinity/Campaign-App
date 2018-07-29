@@ -1,9 +1,9 @@
+const { Router } = require('express');
 const express = require('express');
 const path = require('path');
 const bp = require('body-parser');
 const cors = require('cors');
-const cards = require('./JSON/cards.json');
-const campaigns = require('./JSON/campaigns.json');
+const session = require('express-session')
 
 const PORT = 3000;
 const app = express();
@@ -20,16 +20,10 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '../dist/index.html'));
 });
 
-// Data routes
-// Card.json
-app.get('/cards', (req, res) => {
-  res.json(cards);
-});
+// Controller routes
+const controllerRoutes = require('./routes');
 
-// Campaigns.json
-app.get('/campaigns', (req, res) => {
-  res.json(campaigns);
-});
+app.use('/', controllerRoutes);
 
 // Start server
 app.listen(PORT, async () => {
