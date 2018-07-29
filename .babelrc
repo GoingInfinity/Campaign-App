@@ -2,13 +2,6 @@
   "presets": ["env", "react", "flow"],
   "plugins": [
     "transform-class-properties",
-    [
-      "module-resolver", {
-        "alias": {
-          "components": "./src/components",
-          "modules": "./src/modules"
-        }
-      }
-    ]
+    "regenerator-transform"
   ]
 }
