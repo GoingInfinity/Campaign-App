@@ -5,6 +5,7 @@ import axios from 'axios';
 type Props = {
   status: string,
   title: string,
+  update: Function,
 }
 
 export default class Dropdown extends React.PureComponent<Props, {}> {
@@ -17,20 +18,18 @@ export default class Dropdown extends React.PureComponent<Props, {}> {
       expired: ['saved'],
       declined: ['saved'],
       terminated: ['saved'],
-    }
+    },
   }
 
-  props: Prop;
-
   updateCampaignStatus = (e) => {
-    const { update } = this.props;
+    const { update, title } = this.props;
 
-    const { title, status } = this.props;
     axios.post(`/${title}/${e.currentTarget.textContent}`).then(res => {
       update(res);
     }).catch(err => {
-      console.log('axios error', err)
-    })
+      // eslint-disable-next-line no-console
+      console.log('axios error', err);
+    });
   }
 
   renderFilterButtons = () => {
@@ -39,8 +38,8 @@ export default class Dropdown extends React.PureComponent<Props, {}> {
 
     return state[status].map((data, i) => {
       return (
-        <div>
-          <button className="dropdown-item" type="button" key={i} onClick={this.updateCampaignStatus}>
+        <div key={i}>
+          <button className="dropdown-item" type="button" onClick={this.updateCampaignStatus}>
             {data}
           </button>
         </div>
@@ -49,7 +48,6 @@ export default class Dropdown extends React.PureComponent<Props, {}> {
   }
 
   render() {
-    // console.log(this.props.saved,'saved')
     return (
       <div className="dropdown position-absolute mx-auto" style={{ right: '0' }}>
         <button className="btn-transparent btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" />

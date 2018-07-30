@@ -10,15 +10,15 @@ type Props = {
 export default class CardContainer extends React.PureComponent<Props> {
   renderCards = () => {
     const { cards, update } = this.props;
-    console.log('again', cards.constructor === Array)
+    let cardData;
 
-    let data
     if (cards.constructor === Array) {
-      data = cards
-    } else data = cards.data
-    return data.map((data, i) => {
+      cardData = cards;
+    } else cardData = cards.data;
+
+    return cardData.map((data, i) => {
       return (
-        <div>
+        <div key={i}>
           <Cards
             title={data.cardTitle}
             image={data.primaryMediaUrl}
@@ -28,7 +28,6 @@ export default class CardContainer extends React.PureComponent<Props> {
             view={data.views}
             status={data.currentWorkflow}
             update={update}
-            key={i}
           />
         </div>
       );
@@ -48,7 +47,6 @@ export default class CardContainer extends React.PureComponent<Props> {
   }
 
   render() {
-    console.log('update', this.props.update)
     return (
       <div className="container pt-5 d-flex flex-wrap justify-content-around">
         {this.renderPage()}

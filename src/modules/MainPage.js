@@ -12,10 +12,7 @@ class MainPage extends Component {
     this.state = {
       campaignId: [],
       campaignNames: [],
-      selectedCampaign: 'All Campaigns',
       cards: [],
-      states: ['saved', 'pending', 'active', 'paused', 'expired', 'declined', 'terminated'],
-
     };
   }
 
@@ -31,17 +28,9 @@ class MainPage extends Component {
     });
   }
 
-  getAllCampaign = () => {
-    axios.get('http://localhost:3000/cards').then(res => {
-      this.setState({
-        cards: res.data,
-      });
-    });
-  }
-
   updateCardsData = (data) => {
     this.setState({
-      cards: data
+      cards: data,
     });
   }
 
@@ -49,7 +38,6 @@ class MainPage extends Component {
     axios.get(`http://localhost:3000/cards/${e.target.id}`)
       .then(res => {
         this.setState({
-          selectedCampaign: e.currentTarget.textContent,
           cards: res.data,
         });
       });
@@ -59,7 +47,6 @@ class MainPage extends Component {
     const {
       campaignId,
       campaignNames,
-      selectedCampaign,
       cards,
     } = this.state;
     return (
@@ -67,7 +54,6 @@ class MainPage extends Component {
         <Header
           id={campaignId}
           campaignName={campaignNames}
-          selectedCampaign={selectedCampaign}
           update={this.filterByCampaignId}
         />
         <CardContainer

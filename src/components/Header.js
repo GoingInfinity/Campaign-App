@@ -1,12 +1,9 @@
 // @ flow
 import React from 'react';
-import { Link } from 'react-router';
-import axios from 'axios';
 
 type Props = {
   id: [],
   campaignName: [],
-  selectedCampaign: string,
   update: Function,
 }
 
@@ -28,9 +25,8 @@ export default class Header extends React.PureComponent<Props> {
     const { id, campaignName } = this.props;
     return campaignName.map((string, i) => {
       return (
-        <div className="dropdown-item" id={id[i]} onClick={this.updateCurrentSelection}>
+        <div className="dropdown-item" id={id[i]} key={i} onClick={this.updateCurrentSelection}>
           {string}
-          {/* jsx-a11y/no-static-element-interaction */}
         </div>
       );
     });
