@@ -7,6 +7,7 @@ import MainPage from './modules/MainPage';
 class App extends React.Component {
   render() {
     return (
+      // Deleted react-router. Found no use for it yet
       <MainPage />
     );
   }

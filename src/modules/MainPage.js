@@ -28,6 +28,7 @@ class MainPage extends Component {
     });
   }
 
+  // To be sent as props to dropdown component
   updateCardsData = (data) => {
     this.setState({
       cards: data,
