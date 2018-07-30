@@ -18,9 +18,10 @@ class MainPage extends Component {
   }
 
   async componentDidMount() {
-    const campaignNamesRequest = await axios.get('http://localhost:3000/campaigns').then(res => res.data.map(data => data.campaignName));
-    const campaignIdRequest = await axios.get('http://localhost:3000/campaigns').then(res => res.data.map(data => data.id));
-    const cardRequest = await axios.get('http://localhost:3000/cards').then(res => res.data);
+    const baseUrl = 'http://localhost:3000';
+    const campaignNamesRequest = await axios.get(`${baseUrl}/campaigns`).then(res => res.data.map(data => data.campaignName));
+    const campaignIdRequest = await axios.get(`${baseUrl}/campaigns`).then(res => res.data.map(data => data.id));
+    const cardRequest = await axios.get(`${baseUrl}/cards`).then(res => res.data);
 
     this.setState({
       cards: cardRequest,
@@ -30,7 +31,7 @@ class MainPage extends Component {
   }
 
   // To be sent as props to dropdown component
-  updateCardsData = (data) => {
+  updateCardsData = (data: Object) => {
     this.setState({
       cards: data,
     });
