@@ -55,12 +55,12 @@ export default class CardDropdown extends React.PureComponent<Props, {}> {
   render() {
     return (
       <div className="dropdown position-absolute mx-auto" style={{ right: '0' }}>
-        <button className="btn-white m-1 h-auto" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <button className="btn-white m-1" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <span style={{ color: 'orange' }}>
             <i className="fas fa-pencil-alt" />
           </span>
         </button>
-        <div className="dropdown-menu" aria-labelledby="dropdownMenu1" style={{}}>
+        <div className="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1" style={{}}>
           {this.renderFilterButtons()}
         </div>
       </div>
