@@ -13,7 +13,7 @@ export default class CardDropdown extends React.PureComponent<Props, {}> {
   state: {} = {
     state: {
       saved: ['pending'],
-      pending: ['active', 'decline'],
+      pending: ['active', 'declined'],
       active: ['paused', 'expired', 'terminated'],
       paused: ['active'],
       expired: ['saved'],
