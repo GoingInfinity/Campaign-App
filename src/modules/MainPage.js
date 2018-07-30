@@ -1,6 +1,7 @@
 // @ flow
 import React, { Component } from 'react';
 import axios from 'axios';
+// eslint-disable-next-line no-unused-vars
 import regeneratorRuntime from 'regenerator-runtime';
 
 import Header from '../components/Header';

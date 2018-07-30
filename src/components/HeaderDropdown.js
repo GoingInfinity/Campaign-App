@@ -1,7 +1,5 @@
 // @ flow
 import React from 'react';
-import axios from 'axios';
-import classNames from 'classnames';
 
 type Props = {
   currentSelection: Function,
@@ -11,7 +9,6 @@ type Props = {
 }
 
 export default class HeaderDropdown extends React.PureComponent<Props, {}> {
-
   renderCampaignsList = () => {
     const { id, campaignName, updateCurrentSelection } = this.props;
     return campaignName.map((string, i) => {
@@ -31,7 +28,9 @@ export default class HeaderDropdown extends React.PureComponent<Props, {}> {
           { currentSelection }
         </button>
         <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <div className="dropdown-item" onClick={updateCurrentSelection} >All Campaigns</div>
+          <div className="dropdown-item" onClick={updateCurrentSelection}>
+            All Campaigns
+          </div>
           {this.renderCampaignsList()}
         </div>
       </div>
