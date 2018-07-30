@@ -1,7 +1,7 @@
 // @ flow
 import React from 'react';
 
-import Dropdown from './Dropdown';
+import CardDropdown from './CardDropdown';
 
 type Props = {
   title: string,
@@ -55,7 +55,7 @@ export default class Cards extends React.PureComponent<Props> {
     return (
       <div className="shadow p-3 mb-5 bg-white rounded">
         <div className="card mb-5 rounded position-relative" style={{ width: '15rem' }}>
-          <Dropdown status={status} title={title} update={update} />
+          <CardDropdown status={status} title={title} update={update} />
           {/* <i className="fas fa-spinner fa-spin fa-5x mt-3 position-absolute"
           style={{marginLeft: '90px', color: 'white', zIndex: '2'}}></i> */}
           <img className="card-img-top" src={image} alt='No Data File' />

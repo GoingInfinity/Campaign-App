@@ -9,7 +9,7 @@ type Props = {
   update: Function,
 }
 
-export default class Dropdown extends React.PureComponent<Props, {}> {
+export default class CardDropdown extends React.PureComponent<Props, {}> {
   state: {} = {
     state: {
       saved: ['pending'],
