@@ -1,6 +1,7 @@
 // @ flow
 import React from 'react';
 import axios from 'axios';
+import classNames from 'classnames';
 
 type Props = {
   status: string,
@@ -14,7 +15,7 @@ export default class Dropdown extends React.PureComponent<Props, {}> {
       saved: ['pending'],
       pending: ['active', 'decline'],
       active: ['paused', 'expired', 'terminated'],
-      paused: ['active', 'terminated'],
+      paused: ['active'],
       expired: ['saved'],
       declined: ['saved'],
       terminated: ['saved'],
@@ -37,9 +38,13 @@ export default class Dropdown extends React.PureComponent<Props, {}> {
     const { status } = this.props;
 
     return state[status].map((data, i) => {
+      const buttonColor = classNames('dropdown-item', {
+        'text-danger': i !== 0,
+      });
+
       return (
         <div key={i}>
-          <button className="dropdown-item" type="button" onClick={this.updateCampaignStatus}>
+          <button className={buttonColor} type="button" onClick={this.updateCampaignStatus}>
             {data}
           </button>
         </div>
