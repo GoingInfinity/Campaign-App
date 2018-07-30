@@ -48,7 +48,7 @@ export default class CardContainer extends React.PureComponent<Props> {
 
   render() {
     return (
-      <div className="container pt-5 d-flex flex-wrap justify-content-around">
+      <div className="container pt-5 d-flex flex-wrap justify-content-center">
         {this.renderPage()}
       </div>
     );

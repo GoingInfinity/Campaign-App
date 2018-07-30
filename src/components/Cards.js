@@ -22,19 +22,19 @@ export default class Cards extends React.PureComponent<Props> {
 
     if (status === 'saved' || status === 'pending' || status === 'paused') {
       statusIcon = (
-        <span className="border bg-warning border-white rounded-circle position-relative " style={{ width: '12px', height: '12px', bottom: '-3px' }} />
+        <div className="border bg-warning border-white rounded-circle position-relative " style={{ width: '12px', height: '12px', bottom: '-3px' }} />
       );
     } else if (status === 'active') {
       statusIcon = (
-        <span className="border bg-success border-white rounded-circle position-relative " style={{ width: '12px', height: '12px', bottom: '-3px' }} />
+        <div className="border bg-success border-white rounded-circle position-relative " style={{ width: '12px', height: '12px', bottom: '-3px' }} />
       );
     } else
     if (status === 'declined' || status === 'terminated') {
       statusIcon = (
-        <span className="border bg-danger border-white rounded-circle position-relative " style={{ width: '12px', height: '12px', bottom: '-3px' }} />
+        <div className="border bg-danger border-white rounded-circle position-relative " style={{ width: '12px', height: '12px', bottom: '-3px' }} />
       );
     } else {
-      statusIcon = <span className="border bg-secondary border-white rounded-circle position-relative " style={{ width: '12px', height: '12px', bottom: '-3px' }} />;
+      statusIcon = <div className="border bg-secondary border-white rounded-circle position-relative " style={{ width: '12px', height: '12px', bottom: '-3px' }} />;
     }
 
     return statusIcon;
@@ -54,7 +54,7 @@ export default class Cards extends React.PureComponent<Props> {
 
     return (
       <div className="shadow p-3 mb-5 bg-white rounded">
-        <div className="card mb-5 rounded position-relative" style={{ width: '16rem' }}>
+        <div className="card mb-5 rounded position-relative" style={{ width: '15rem' }}>
           <Dropdown status={status} title={title} update={update} />
           {/* <i className="fas fa-spinner fa-spin fa-5x mt-3 position-absolute"
           style={{marginLeft: '90px', color: 'white', zIndex: '2'}}></i> */}
@@ -64,7 +64,8 @@ export default class Cards extends React.PureComponent<Props> {
               {title}
             </h5>
           </div>
-          <div className="card-body d-flex flex-row justify-content-between text-secondary" style={{ fontSize: '12px' }}>
+
+          <div className="card-body d-flex justify-content-between text-secondary" style={{ fontSize: '12px' }}>
             <p className="card-text">
               {price.amount}
               &nbsp;
@@ -72,11 +73,14 @@ export default class Cards extends React.PureComponent<Props> {
               &nbsp;
               / Month
             </p>
-            <p className="card-text position-relative ml-5">
-              {status}
-            </p>
-            {this.renderStatusIcon(status)}
+            <div className="d-flex flex-row">
+              <p className="card-text position-relative">
+                {status}
+              </p>
+              {this.renderStatusIcon(status)}
+            </div>
           </div>
+
           <div className="card-footer text-muted d-flex justify-content-around">
             <i className="fas fa-database fa-sm">
               &nbsp;
