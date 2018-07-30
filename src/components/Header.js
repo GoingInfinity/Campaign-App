@@ -49,8 +49,6 @@ export default class Header extends React.PureComponent<Props> {
   }
 
   render() {
-    const { currentDate } = this.state;
-    console.log(currentDate);
     const { currentSelection } = this.state;
     return (
       <nav className="navbar navbar-expand-lg navbar-light bg-light" key='header'>
