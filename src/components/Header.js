@@ -44,7 +44,7 @@ export default class Header extends React.PureComponent<Props> {
     const { id, campaignName } = this.props;
     return (
       <nav className="navbar navbar-expand-lg navbar-light bg-light" key='header'>
-        <div className="container">
+        <div className="container px-4">
           <HeaderDropdown
             currentSelection={currentSelection}
             updateCurrentSelection={this.updateCurrentSelection}
