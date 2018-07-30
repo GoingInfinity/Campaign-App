@@ -43,7 +43,7 @@ export default class Cards extends React.PureComponent<Props> {
   renderImage = () => {
     const { image } = this.props;
     return image.match(/\.(jpeg|jpg|gif|png)$/) != null ? <img className="card-img-top" src={image} alt='No Data File' />
-      : <img className="card-img-top" src='https://www.freeiconspng.com/uploads/no-image-icon-15.png' alt='No Data File' width="auto" height="125px" />;
+      : <img className="card-img-top px-5" src='https://www.freeiconspng.com/uploads/no-image-icon-15.png' alt='No Data File' width="auto" height="125px" />;
   }
 
   render() {
@@ -62,8 +62,6 @@ export default class Cards extends React.PureComponent<Props> {
       <div className="shadow p-3 mb-5 bg-white rounded">
         <div className="card mb-5 rounded position-relative" style={{ width: '15rem' }}>
           <CardDropdown status={status} title={title} update={update} />
-          {/* <i className="fas fa-spinner fa-spin fa-5x mt-3 position-absolute"
-          style={{marginLeft: '90px', color: 'white', zIndex: '2'}}></i> */}
           {this.renderImage()}
           <div className="card-body">
             <h5 className="card-title">
@@ -76,8 +74,7 @@ export default class Cards extends React.PureComponent<Props> {
               {price.amount}
               &nbsp;
               {price.currency}
-              &nbsp;
-              / Month
+              &nbsp;/ Month
             </p>
             <div className="d-flex flex-row">
               <p className="card-text position-relative">
